@@ -1,0 +1,28 @@
+# virtual envs
+
+.venv/
+venv/
+
+# Python junk
+
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# OS
+
+.DS_Store
+
+# MLflow
+
+mlartifacts/
+mlruns/
+
+# PNG image files
+
+\*.png
