@@ -1,13 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
+from mlflow.tracking import MlflowClient
 import mlflow.pyfunc
 import mlflow
 import pandas as pd
 import time 
 import os 
 
+client = MlflowClient()
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+
+MODEL_NAME = os.getenv("MODEL_NAME")
+ALIAS = os.getenv("ALIAS")
 MODEL_URI = os.getenv("MODEL_URI")
 model = mlflow.pyfunc.load_model(MODEL_URI)
 
@@ -31,7 +36,19 @@ class PredictResponse(BaseModel):
 # Endpoints 
 @app.get("/health")
 def health(): 
-    return {"status": "ok", "model_uri": MODEL_URI}
+    try:
+        mv = client.get_model_version_by_alias(MODEL_NAME, ALIAS)
+        version = mv.version
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Health check failed: {e}")
+    
+    return {
+        "status": "ok", 
+        "model": MODEL_NAME, 
+        "model_uri": MODEL_URI,
+        "alias": ALIAS, 
+        "version": version
+    }
 
 @app.post("/predict", response_model=PredictResponse)
 def predict(req: List[PredictRequest]): 
@@ -41,7 +58,7 @@ def predict(req: List[PredictRequest]):
         pred = model.predict(df)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Model inference failed: {e}")
-
+    
     return {
         "message": f"Species predicted: {pred[0]}",
         "species": pred[0], 
