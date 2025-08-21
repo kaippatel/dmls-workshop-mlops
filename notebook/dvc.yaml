@@ -1,8 +1,0 @@
-stages:
-  train_baseline:
-    cmd: python src/train.py
-    deps:
-    - data/penguins.csv
-    - src/train.py
-    outs:
-    - models/baseline_model.pkl
