@@ -2,7 +2,8 @@ import requests
 
 predict_endpoint = "http://localhost:8000/predict"
 health_endpoint = "http://localhost:8000/health"
-data = [{
+
+payload = [{
     "bill_length_mm": 48.7,
     "bill_depth_mm": 18.6,
     "flipper_length_mm": 195,
@@ -12,7 +13,7 @@ data = [{
 }]
 
 # Test prediction endpoint
-res = requests.post(predict_endpoint, json=data)
+res = requests.post(predict_endpoint, json=payload)
 print(res.json())
 
 # Test health endpoint
