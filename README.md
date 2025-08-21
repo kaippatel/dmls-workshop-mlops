@@ -62,7 +62,7 @@ After installing, restart your terminal so new commands are available.
 ### **1️⃣ Clone the Repository**
 
 ```bash
-git clone https://github.com/kaippatel/dmls-mlops-workshop.git
+git clone https://github.com/kaippatel/dmls-workshop-mlops.git
 cd dmls-mlops-workshop
 ```
 
