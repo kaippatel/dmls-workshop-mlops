@@ -33,7 +33,10 @@ https://docs.google.com/presentation/d/1EGb7kbygJQf9-MDvPUXNB1oH7hB9S9iZDhQzms3i
 ```
 dmls-mlops-workshop/
 │-- notebook/           # Jupyter notebook for training models and versioning
+│-- services/           # Contains api/ and mlflow/ services
+│-- .env.example        # Example .env
 │-- .gitignore          # Ignore unnecessary or private files
+│-- docker-compose.yml  # Runs docker application locally
 │-- LICENSE.txt         # Open-source MIT license
 │-- README.md           # This file (setup instructions)
 │-- requirements.txt    # Dependencies for running notebooks (required for local setup)
@@ -102,6 +105,42 @@ jupyter lab
 We will begin with `notebook/train_penguins.ipynb`.
 
 ---
+
+## **🐳 How to Run the Predictions API Locally**
+
+### **1️⃣ Run `mlflow` container**
+
+```bash
+docker compose up --build mlflow
+```
+
+### **2️⃣ Run `/notebook/train_penguins.ipynb` notebook to track runs in mlflow**
+
+The Backend store and Artifacts store will be mounted to the mlflow container.
+
+### **3️⃣ Run `api` container**
+
+```bash
+docker compose up --build api
+```
+
+### **4️⃣ Test api**
+
+```bash
+python ./services/api/test.py
+```
+
+### **5️⃣ Stop running containers**
+
+```bash
+docker compose down
+```
+
+> Add -v flag to wipe volumes (MLflow DB + artifacts)
+
+```bash
+docker compose down -v
+```
 
 ## **📜 Requirements**
 
