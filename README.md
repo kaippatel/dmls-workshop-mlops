@@ -150,7 +150,7 @@ docker compose down -v
 
 ## **📝 Citations**
 
-1. Batching method for experiment tracking: notebooks/train_penguins.ipynb, cell 22, http://youtube.com/watch?v=6ngxBkx05Fs
+1. Batching method for experiment tracking: notebook/train_penguins.ipynb, cell 22, http://youtube.com/watch?v=6ngxBkx05Fs
 
 ## **⚡ Contribution & Feedback**
 
