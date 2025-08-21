@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  train_baseline:
+    cmd: python src/train.py
+    deps:
+    - path: data/penguins.csv
+      hash: md5
+      md5: 15d47d23d10f2f2f842439a2abdb771d
+      size: 15010
+    - path: src/train.py
+      hash: md5
+      md5: a4f35b47328fe1ac1ae941c286b2735c
+      size: 1313
+    outs:
+    - path: models/baseline_model.pkl
+      hash: md5
+      md5: 11379bfe4c0da1a58dac77dd20d95348
+      size: 510035
