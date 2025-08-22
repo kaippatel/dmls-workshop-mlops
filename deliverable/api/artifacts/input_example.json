@@ -1,1 +1,0 @@
-{"columns": ["pclass", "sex", "age", "sibsp", "parch", "fare", "embarked", "class", "who", "adult_male", "deck", "embark_town", "alone"], "data": [[3, "male", NaN, 0, 0, 56.4958, "S", "Third", "man", true, NaN, "Southampton", true]]}
