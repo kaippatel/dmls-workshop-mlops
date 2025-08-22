@@ -14,7 +14,6 @@ model = mlflow.pyfunc.load_model(str(APP_DIR / "artifacts"))
 
 app = FastAPI(title="Titanic Classifier API")
 
-# ---------DO NOT CHANGE---------------
 class Request(BaseModel):
     pclass: int
     sex: str
