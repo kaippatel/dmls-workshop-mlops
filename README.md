@@ -32,6 +32,7 @@ https://docs.google.com/presentation/d/1EGb7kbygJQf9-MDvPUXNB1oH7hB9S9iZDhQzms3i
 
 ```
 dmls-mlops-workshop/
+│-- deliverable/        # Deliverable to submit for Certificate after workshop
 │-- notebook/           # Jupyter notebook for training models and versioning
 │-- services/           # Contains api/ and mlflow/ services
 │-- .env.example        # Example .env
@@ -39,6 +40,7 @@ dmls-mlops-workshop/
 │-- docker-compose.yml  # Runs docker application locally
 │-- LICENSE.txt         # Open-source MIT license
 │-- README.md           # This file (setup instructions)
+│-- render.yaml         # Render file to deploy your model
 │-- requirements.txt    # Dependencies for running notebooks (required for local setup)
 ```
 

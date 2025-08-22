@@ -1,18 +1,16 @@
 services:
   - type: web
-    name: penguins-api
-    env: docker
+    name: titanic-api
+    env: python
     plan: free
-    rootDir: services/api
+    rootDir: deliverable/api
     region: oregon
-    autoDeploy: true
+    autoDeploy: false
     healthCheckPath: /health
-    dockerCommand: uvicorn services.api.app:app --host 0.0.0.0 --port $PORT
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: MODEL_NAME
-        value: penguins_classifier
-      - key: MODEL_URI
-        value: models:/penguins_classifier@prod
-      # Leave this blank here; set it in the Render UI after MLflow is created:
-      - key: MLFLOW_TRACKING_URI
-        value: __SET_IN_RENDER_UI_AFTER_DEPLOY__
+      - key: PYTHON_VERSION
+        value: 3.11.9
