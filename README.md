@@ -36,7 +36,7 @@ Submit your API URL using the following 👉 [Airtable](https://airtable.com/app
 ## **⏳ Timeline**
 
 You have **1 week** to complete this deliverable. \
-Submissions to the `Airtable` will be available until **August 29, 2025 @11:59 PM**
+Submissions to the `Airtable` will be available until **August 30, 2025 @11:59 PM**
 
 ---
 
